@@ -8,7 +8,7 @@
 * [O projekcie](#o-projekcie)
 * [Technologie](#technologie)
 * [Instalacja](#instalacja)
-* [Jak to działa?](#jak-to-działa?)
+* [Jak to działa?](#jak-to-działa)
 * [Potencjalne kierunki rozwoju](#potencjalne-kierunki-rozwoju)
 
 ## O projekcie
