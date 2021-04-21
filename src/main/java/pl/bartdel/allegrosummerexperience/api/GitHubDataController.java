@@ -11,7 +11,7 @@ public class GitHubDataController {
 
     GitHubDataProvider gitHubDataProvider = new GitHubDataProvider();
 
-    @GetMapping(value="/githubdata")
+    @GetMapping(value="/github_data")
     @ResponseBody
     public String getUserData(@RequestParam(value = "user") String user) throws UnirestException {
         return gitHubDataProvider.getData(user);

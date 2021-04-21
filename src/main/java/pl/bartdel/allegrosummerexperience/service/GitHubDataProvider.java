@@ -32,7 +32,7 @@ public class GitHubDataProvider {
     private JSONObject getReposList(HttpResponse<JsonNode> jsonNodeHttpResponse){
         JSONArray array = jsonNodeHttpResponse.getBody().getArray();
         JSONObject reposList = new JSONObject();
-        for(int i = 0; i < array.length(); i++){
+        for (int i = 0; i < array.length(); i++){
             reposList.put(array.getJSONObject(i).getString("name"), new JSONObject().put("stars", array.getJSONObject(i).getInt("stargazers_count")));
         }
         return reposList;
@@ -40,7 +40,6 @@ public class GitHubDataProvider {
 
     private String formatDataToJSON(int stars, JSONObject reposList){
         JSONObject jsonBuilder = new JSONObject();
-
         jsonBuilder.put("repositories",reposList);
         jsonBuilder.put("sum_of_all_stars",stars);
         return jsonBuilder.toString();

@@ -42,15 +42,20 @@ W projekcie użyłem następujących technologii:
 ```
 ## Jak to działa?
 
+Po instalacji i uruchomieniu aplikacji na serwerze dane są zwracane poprzez endpoint "/api/github_data?user=przykładowy_użytkownik_githuba". Przykładowy adres wyglądałby w ten sposób:
+```
+https://adres_ip_serwera/api/github_data?user=Bart-del
+
+```
+Aplikacja zwróci nazwy moich wszystkich publicznych repozytoriów oraz gwiazdek w formacie JSON używając protokołu HTTP.
+
 ## Potencjalne kierunki rozwoju
 
 Projekt w obecnym stanie nie jest zbyt rozbudowany, jednak może stanowić dobrą bazę do dalszego rozwoju. Przyszłe potencjalne funkcje mogą obejmowac na przykład:
 * Poszerzenie zwracanych danych o dodakowe informacje o repozytoriach danego użytkownika i nie tylko
 * Zbieranie statystyk o wszelkich projektach open source w celach badawczych
-* Badanie kierunku rozwoju oraz trendów w open source korzystając z dodatkowych statystyk, które udostępnia GitHub w swoim API
-* 
-
-
+* Badanie kierunku rozwoju oraz trendów w open source korzystając z dodatkowych danych, które udostępnia GitHub w swoim API
+* Stworzenie serwisu internetowego, lub aplikacji mobilnej, która wykorzysta udostępniane dane i przedstawi je w estetyczny sposób
 
 
 ## Table of contents
@@ -61,23 +66,43 @@ Projekt w obecnym stanie nie jest zbyt rozbudowany, jednak może stanowić dobr�
 * [Future development](#future-development)
 
 ## About project
-This project is simple Lorem ipsum dolor generator.
-	
-## Technologies
-Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
-	
-## Setup
-To run this project, install it locally using npm:
+The project was created as part of a recruitment task for the position of Intern Software Engineer in the Allegro Summer E-Xperience program. The task was:
 
 ```
-$ cd ../lorem
-$ npm install
-$ npm start
+Project no. 3
+
+Create software that allows you to:
+- listing of repositories (name and number of stars),
+- returning the sum of stars in all repositories,
+for any GitHub user.
+Data should be returned using the HTTP protocol. 
 ```
+
+All project requirements have been fulfilled and the code is available on my GitHub account. 
+	
+## Technologies
+In the project, I used the following technologies:
+
+* Java version 11.02
+* Framework Spring version 2.4.5
+* Unirest library to connect to the Github API 
+	
+## Setup
+
 
 ## How it works?
 
+After installing and running the application on the server, the data is returned via endpoint "/api/github_data?user=exemplary_github_user". An example address would look like this:
+``
+https://server_ip_address/api/github_data?user=Bart-del
+
+``
+The application will return the names of all my public repositories and asterisks in JSON format using the HTTP protocol. 
+
 ## Future development
+
+The project in its current state is not very extensive, but it can constitute a good basis for further development. Future potential features may include, for example:
+* Extending the returned data with additional information about the repositories of a given user and more
+* Collecting statistics on any open source projects for research purposes
+* Research on the direction of development and trends in open source using additional data that GitHub provides in its API
+* Creating a website or a mobile application that will use the shared data and present it in an aesthetic way 
