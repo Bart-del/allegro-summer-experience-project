@@ -45,7 +45,6 @@ W projekcie użyłem następujących technologii:
 Po instalacji i uruchomieniu aplikacji na serwerze dane są zwracane poprzez endpoint "/api/github_data?user=przykładowy_użytkownik_githuba". Przykładowy adres wyglądałby w ten sposób:
 ```
 https://adres_ip_serwera/api/github_data?user=Bart-del
-
 ```
 Aplikacja zwróci nazwy moich wszystkich publicznych repozytoriów oraz gwiazdek w formacie JSON używając protokołu HTTP.
 
@@ -88,15 +87,16 @@ In the project, I used the following technologies:
 * Unirest library to connect to the Github API 
 	
 ## Setup
+```
 
+```
 
 ## How it works?
 
 After installing and running the application on the server, the data is returned via endpoint "/api/github_data?user=exemplary_github_user". An example address would look like this:
-``
+```
 https://server_ip_address/api/github_data?user=Bart-del
-
-``
+```
 The application will return the names of all my public repositories and asterisks in JSON format using the HTTP protocol. 
 
 ## Future development
