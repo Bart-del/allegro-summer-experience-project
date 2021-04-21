@@ -64,7 +64,7 @@ Projekt w obecnym stanie nie jest zbyt rozbudowany, jednak może stanowić dobr�
 * [General info](#about-project)
 * [Technologies](#technologies)
 * [Setup](#setup)
-* [How it works](#how-it-works?)
+* [How it works](#how-it-works)
 * [Future development](#future-development)
 
 ## About project
