@@ -5,9 +5,9 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 
 @Service
 public class GitHubDataProvider {
@@ -20,21 +20,30 @@ public class GitHubDataProvider {
         return jsonResponse;
     }
 
-    private int countStars(HttpResponse<JsonNode> repos){
-        return 0;
+    private int countStars(HttpResponse<JsonNode> jsonNodeHttpResponse){
+        int stars = 0;
+        JSONArray array = jsonNodeHttpResponse.getBody().getArray();
+        for(int i = 0; i < array.length(); i++){
+            stars = stars + array.getJSONObject(i).getInt("stargazers_count");
+        }
+        return stars;
     }
 
-    private ArrayList<String> getReposList(HttpResponse<JsonNode> jsonNodeHttpResponse){
+    private JSONObject getReposList(HttpResponse<JsonNode> jsonNodeHttpResponse){
         JSONArray array = jsonNodeHttpResponse.getBody().getArray();
-        ArrayList<String> reposList = new ArrayList<>();
+        JSONObject reposList = new JSONObject();
         for(int i = 0; i < array.length(); i++){
-            reposList.add(array.getJSONObject(i).getString("name"));
+            reposList.put(array.getJSONObject(i).getString("name"), new JSONObject().put("stars", array.getJSONObject(i).getInt("stargazers_count")));
         }
         return reposList;
     }
 
-    private String formatDataToJSON(int stars, ArrayList reposList){
-        return "placeholder";
+    private String formatDataToJSON(int stars, JSONObject reposList){
+        JSONObject jsonBuilder = new JSONObject();
+
+        jsonBuilder.put("repositories",reposList);
+        jsonBuilder.put("sum_of_all_stars",stars);
+        return jsonBuilder.toString();
     }
 
     public String getData(String user) throws UnirestException {
