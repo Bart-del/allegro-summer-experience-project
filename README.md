@@ -37,9 +37,12 @@ W projekcie użyłem następujących technologii:
 
 ## Instalacja
 
-```
+Instalacja może przebiegać w różny sposób, w zależności od dostepnego środowiska. W przypadku tradycyjnych serwerów, na przykład tomcat najprostrzym sposobem jest:
 
-```
+* pobranie wygenrowanego pliku war,
+* przeniesienie go do folderu tomcat/webapps/
+* z poziomu terminala w folderze tomcat/bin uruchomić polecenie "catalina.bat run" w systemie Windows, natomiast w systemach Unixowych "catalina.sh run"
+
 ## Jak to działa?
 
 Po instalacji i uruchomieniu aplikacji na serwerze dane są zwracane poprzez endpoint "/api/github_data?user=przykładowy_użytkownik_githuba". Przykładowy adres wyglądałby w ten sposób:
@@ -65,6 +68,7 @@ Projekt w obecnym stanie nie jest zbyt rozbudowany, jednak może stanowić dobr�
 * [Future development](#future-development)
 
 ## About project
+
 The project was created as part of a recruitment task for the position of Intern Software Engineer in the Allegro Summer E-Xperience program. The task was:
 
 ```
@@ -80,6 +84,7 @@ Data should be returned using the HTTP protocol.
 All project requirements have been fulfilled and the code is available on my GitHub account. 
 	
 ## Technologies
+
 In the project, I used the following technologies:
 
 * Java version 11.02
@@ -87,9 +92,12 @@ In the project, I used the following technologies:
 * Unirest library to connect to the Github API 
 	
 ## Setup
-```
 
-```
+Installation can take different steps depending on the available environment. For traditional servers, such as tomcat, the easiest way is to:
+
+* download a generated war file,
+* moving it to the tomcat / webapps / folder
+* from the terminal level in the tomcat / bin folder run the command "catalina.bat run" in Windows, and in Unix systems "catalina.sh run" 
 
 ## How it works?
 
