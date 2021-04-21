@@ -1,13 +1,12 @@
 package pl.bartdel.allegrosummerexperience.api;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
-import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.bartdel.allegrosummerexperience.service.GitHubDataProvider;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping(value="/api/", produces = {MediaType.APPLICATION_JSON_VALUE })
 public class GitHubDataController {
 
     GitHubDataProvider gitHubDataProvider = new GitHubDataProvider();
