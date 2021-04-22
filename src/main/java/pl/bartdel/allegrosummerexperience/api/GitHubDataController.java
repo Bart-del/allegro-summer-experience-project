@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.bartdel.allegrosummerexperience.service.GitHubDataProvider;
 
 @RestController
-@RequestMapping(value="/api/", produces = {MediaType.APPLICATION_JSON_VALUE })
+@RequestMapping(value="/api/", produces = { MediaType.APPLICATION_JSON_VALUE })
 public class GitHubDataController {
 
     GitHubDataProvider gitHubDataProvider = new GitHubDataProvider();

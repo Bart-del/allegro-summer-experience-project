@@ -13,27 +13,25 @@ import org.springframework.stereotype.Service;
 public class GitHubDataProvider {
 
     private HttpResponse<JsonNode> getJSON(String user) throws UnirestException {
-        HttpResponse<JsonNode> jsonResponse
-                = Unirest.get("https://api.github.com/users/" + user + "/repos")
-                .header("accept", "application/json")
-                .asJson();
-        return jsonResponse;
+        return Unirest.get("https://api.github.com/users/" + user + "/repos")
+        .header("accept", "application/json")
+        .asJson();
     }
 
     private int countStars(HttpResponse<JsonNode> jsonNodeHttpResponse){
         int stars = 0;
-        JSONArray array = jsonNodeHttpResponse.getBody().getArray();
-        for(int i = 0; i < array.length(); i++){
-            stars = stars + array.getJSONObject(i).getInt("stargazers_count");
+        JSONArray jsonArray = jsonNodeHttpResponse.getBody().getArray();
+        for (int i = 0; i < jsonArray.length(); i++){
+            stars = stars + jsonArray.getJSONObject(i).getInt("stargazers_count");
         }
         return stars;
     }
 
     private JSONObject getReposList(HttpResponse<JsonNode> jsonNodeHttpResponse){
-        JSONArray array = jsonNodeHttpResponse.getBody().getArray();
+        JSONArray jsonArray = jsonNodeHttpResponse.getBody().getArray();
         JSONObject reposList = new JSONObject();
-        for (int i = 0; i < array.length(); i++){
-            reposList.put(array.getJSONObject(i).getString("name"), new JSONObject().put("stars", array.getJSONObject(i).getInt("stargazers_count")));
+        for (int i = 0; i < jsonArray.length(); i++){
+            reposList.put(jsonArray.getJSONObject(i).getString("name"), new JSONObject().put("stars", jsonArray.getJSONObject(i).getInt("stargazers_count")));
         }
         return reposList;
     }
