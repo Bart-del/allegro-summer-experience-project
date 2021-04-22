@@ -18,17 +18,15 @@ public class GitHubDataProvider {
         .asJson();
     }
 
-    private int countStars(HttpResponse<JsonNode> jsonNodeHttpResponse){
+    private int countReposStars(JSONArray jsonArray){
         int stars = 0;
-        JSONArray jsonArray = jsonNodeHttpResponse.getBody().getArray();
         for (int i = 0; i < jsonArray.length(); i++){
             stars = stars + jsonArray.getJSONObject(i).getInt("stargazers_count");
         }
         return stars;
     }
 
-    private JSONObject getReposList(HttpResponse<JsonNode> jsonNodeHttpResponse){
-        JSONArray jsonArray = jsonNodeHttpResponse.getBody().getArray();
+    private JSONObject getReposList(JSONArray jsonArray){
         JSONObject reposList = new JSONObject();
         for (int i = 0; i < jsonArray.length(); i++){
             reposList.put(jsonArray.getJSONObject(i).getString("name"), new JSONObject().put("stars", jsonArray.getJSONObject(i).getInt("stargazers_count")));
@@ -44,8 +42,8 @@ public class GitHubDataProvider {
     }
 
     public String getData(String user) throws UnirestException {
-        HttpResponse<JsonNode> response = getJSON(user);
-        return formatDataToJSON(countStars(response), getReposList(response));
+        JSONArray responseJsonArray = getJSON(user).getBody().getArray();
+        return formatDataToJSON(countReposStars(responseJsonArray), getReposList(responseJsonArray));
 
     }
 
