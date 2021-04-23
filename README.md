@@ -1,4 +1,4 @@
-# Allegro summer experience project 2021
+# Allegro Summer Experience Project 2021
 
 
 ### English below
