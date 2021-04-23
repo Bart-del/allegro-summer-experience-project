@@ -33,8 +33,8 @@ W projekcie użyłem następujących technologii:
 
 * Java w wersji 11.02
 * Framework Spring w wersji 2.4.5
-* Biblioteka Unirest do nawiązania połączenia z API Github'a
-* Biblioteka Hamcrest do testów  
+* Biblioteka Unirest w wersji 1.4.9 do nawiązania połączenia z API Github'a
+* Biblioteka Hamcrest w wersji 2.2 do testów  
 
 ## Instalacja
 
@@ -44,9 +44,16 @@ Instalacja może przebiegać w różny sposób, w zależności od dostepnego śr
 * przeniesienie go do folderu tomcat/webapps/
 * z poziomu terminala w folderze tomcat/bin uruchomić polecenie "catalina.bat run" w systemie Windows, natomiast w systemach Unixowych "catalina.sh run"
 
+Jeżeli chcesz tylko przetestować projekt możesz również pobrać kod źródłowy i uruchomić aplikację w swoim IDE.
+
 ## Jak to działa?
 
-Po instalacji i uruchomieniu aplikacji na serwerze dane są zwracane poprzez endpoint "/api/github_data?user=przykładowy_użytkownik_githuba". Przykładowy adres wyglądałby w ten sposób:
+Po instalacji i uruchomieniu aplikacji na serwerze dane są zwracane poprzez endpoint:
+```
+/api/github_data?user=przykładowy_użytkownik_githuba
+```
+
+Przykładowy adres wyglądałby w ten sposób:
 ```
 https://adres_ip_serwera/api/github_data?user=Bart-del
 ```
@@ -90,8 +97,8 @@ In the project, I used the following technologies:
 
 * Java version 11.02
 * Framework Spring version 2.4.5
-* Unirest library to connect to the Github API 
-* Hamcrest library for tests
+* Unirest library version 1.4.9 to connect to the Github API 
+* Hamcrest library version 2.2 for tests
 	
 ## Setup
 
@@ -99,11 +106,18 @@ Installation can take different steps depending on the available environment. Fo
 
 * download a generated war file,
 * moving it to the tomcat / webapps / folder
-* from the terminal level in the tomcat / bin folder run the command "catalina.bat run" in Windows, and in Unix systems "catalina.sh run" 
+* from the terminal level in the tomcat / bin folder run the command "catalina.bat run" in Windows, and in Unix systems "catalina.sh run"
+
+If you just want to test the project, you can also download the source code and run the application in your IDE.
 
 ## How it works?
 
-After installing and running the application on the server, the data is returned via endpoint "/api/github_data?user=exemplary_github_user". An example address would look like this:
+After installing and running the application on the server, the data is returned via endpoint:
+```
+/api/github_data?user=exemplary_github_user
+```
+
+An example address would look like this:
 ```
 https://server_ip_address/api/github_data?user=Bart-del
 ```
