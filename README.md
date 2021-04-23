@@ -34,6 +34,7 @@ W projekcie użyłem następujących technologii:
 * Java w wersji 11.02
 * Framework Spring w wersji 2.4.5
 * Biblioteka Unirest do nawiązania połączenia z API Github'a
+* Biblioteka Hamcrest do testów  
 
 ## Instalacja
 
@@ -90,6 +91,7 @@ In the project, I used the following technologies:
 * Java version 11.02
 * Framework Spring version 2.4.5
 * Unirest library to connect to the Github API 
+* Hamcrest library for tests
 	
 ## Setup
 
