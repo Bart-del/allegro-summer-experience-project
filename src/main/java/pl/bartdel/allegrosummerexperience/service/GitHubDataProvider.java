@@ -43,7 +43,6 @@ public class GitHubDataProvider {
     public String getData(String user) throws UnirestException {
         JSONArray responseJsonArray = getJSON(user).getBody().getArray();
         return formatDataToJSON(countReposStars(responseJsonArray), getReposList(responseJsonArray));
-
     }
 
 }
