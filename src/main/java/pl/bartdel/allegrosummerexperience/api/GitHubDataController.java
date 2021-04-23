@@ -1,7 +1,8 @@
 package pl.bartdel.allegrosummerexperience.api;
 
-import com.mashape.unirest.http.exceptions.UnirestException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.bartdel.allegrosummerexperience.service.GitHubDataProvider;
 
@@ -9,11 +10,19 @@ import pl.bartdel.allegrosummerexperience.service.GitHubDataProvider;
 @RequestMapping(value="/api/", produces = { MediaType.APPLICATION_JSON_VALUE })
 public class GitHubDataController {
 
-    GitHubDataProvider gitHubDataProvider = new GitHubDataProvider();
+    private final GitHubDataProvider gitHubDataProvider;
+
+    GitHubDataController(GitHubDataProvider gitHubDataProvider){
+        this.gitHubDataProvider = gitHubDataProvider;
+    }
 
     @GetMapping(value="/github_data")
-    @ResponseBody
-    public String getUserData(@RequestParam(value = "user") String user) throws UnirestException {
-        return gitHubDataProvider.getData(user);
+    public ResponseEntity<?> getUserData(@RequestParam(value = "user") String user) {
+        try {
+            return new ResponseEntity<>(gitHubDataProvider.getData(user), HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
     }
 }
